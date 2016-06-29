@@ -66,7 +66,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener{
 
         //mFab.setOnClickListener(this);
         setupToolBar();
-//        setupDrawer();
+        setupDrawer();
         loadUserInfoValue();
         //List<String> test
 
@@ -197,19 +197,19 @@ public class MainActivity extends BaseActivity implements View.OnClickListener{
             actionBar.setDisplayHomeAsUpEnabled(true);
         }
     }
- /*   private void setupDrawer(){
-        NavigationView navigationView=(NavigationView)findViewById(R.id.navigation_drawer);
+   private void setupDrawer(){
+        NavigationView navigationView=(NavigationView)findViewById(R.id.navigation_view);
         navigationView.setNavigationItemSelectedListener
                 (new NavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(MenuItem item) {
-                showSnackBar(item.getTitle().toString());
+                //showSnackBar(item.getTitle().toString());
                 item.setChecked(true);
                 mNavigationDrawer.closeDrawer(GravityCompat.START);
                 return false;
             }
         });
-    }*/
+    }
     private void changeEditMode(int mode){
         // 1 - редактирование
         //0 - просмотр
