@@ -66,7 +66,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener{
 
         //mFab.setOnClickListener(this);
         setupToolBar();
-        setupDrawer();
+//        setupDrawer();
         loadUserInfoValue();
         //List<String> test
 
@@ -197,7 +197,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener{
             actionBar.setDisplayHomeAsUpEnabled(true);
         }
     }
-    private void setupDrawer(){
+ /*   private void setupDrawer(){
         NavigationView navigationView=(NavigationView)findViewById(R.id.navigation_drawer);
         navigationView.setNavigationItemSelectedListener
                 (new NavigationView.OnNavigationItemSelectedListener() {
@@ -209,7 +209,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener{
                 return false;
             }
         });
-    }
+    }*/
     private void changeEditMode(int mode){
         // 1 - редактирование
         //0 - просмотр
