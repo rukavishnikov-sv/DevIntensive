@@ -340,6 +340,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener{
             mVkOpen.setEnabled(false);// запрет открытия VK
             mGitOpen.setEnabled(false);// запрет открытия GitHub
             mUserPhone.requestFocus(); // при режиме редактировадия установить фокус ввода на поле телефона
+            mUserPhone.setSelection(mUserPhone.getText().length()); //и в конец текста
 
         }
         else{
