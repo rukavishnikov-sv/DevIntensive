@@ -44,6 +44,9 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
 import android.Manifest;
 //import butterknife.BindView;
 //import butterknife.ButterKnife;
@@ -71,6 +74,9 @@ public class MainActivity extends BaseActivity implements View.OnClickListener{
     private AppBarLayout.LayoutParams mAppBarParams = null;
     private File mPhotoFile = null;
     private Uri mSelectedImage = null;
+
+    private final String vkValidPattern="[.]",
+    gitHubValidPattern="^(https:////)";
 
     //@BindView(R.id.phone_call_img) ImageView mPhoneCall;
     //@BindView(R.id.email_send_img)ImageView mEmailSend;
@@ -129,6 +135,34 @@ public class MainActivity extends BaseActivity implements View.OnClickListener{
                 .placeholder(R.drawable.r)////TODO: сделать плейсхолдер и transform + crop
                 .into(mProfileImage);
         //List<String> test
+
+        mUserPhone.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+            @Override
+            public void onFocusChange(View v, boolean hasFocus) {
+                Boolean valid = isPhoneNumberValid(mUserPhone.getText().toString());
+                if (!valid){showSnackBar("Некорректный телефон !!!");}
+
+            }
+        });
+
+        mUserMail.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+            @Override
+            public void onFocusChange(View v, boolean hasFocus) {
+                Boolean valid = isEmailValid(mUserMail.getText().toString());
+                if (!valid){showSnackBar("Некорректный адрес почты !!!");}
+
+            }
+        });
+        //validatePattern
+        mUserVk.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+            @Override
+            public void onFocusChange(View v, boolean hasFocus) {
+                Boolean valid = validatePattern(vkValidPattern, mUserVk.getText().toString());
+                if (!valid){showSnackBar("Некорректный VK !!!");}
+
+            }
+        });
+
 
         if(savedInstanceState==null){
             //showSnackBar("Activity запускается впервые");
@@ -512,5 +546,48 @@ public class MainActivity extends BaseActivity implements View.OnClickListener{
         Intent appSettingsIntent = new Intent(Settings.ACTION_APPLICATION_DETAILS_SETTINGS, Uri.parse("package:" + getPackageName()));
         startActivityForResult(appSettingsIntent,ConstantManager.PERMISSION_REQUEST_SETTINGS_CODE);
     }
+    public static boolean isEmailValid(String email){
+        // проверить email
+        boolean isValid = false;
+        String expression = "^[\\w\\.-]+@([\\w\\-]+\\.)+[A-Z]{2,4}$";
+        CharSequence inputStr = email;
+//Make the comparison case-insensitive.
+        Pattern pattern = Pattern.compile(expression,Pattern.CASE_INSENSITIVE);
+        Matcher matcher = pattern.matcher(inputStr);
+        if(matcher.matches()){
+            isValid = true;
+        }
+        return isValid;
+    }
+    public static boolean isPhoneNumberValid(String phoneNumber){
+        boolean isValid = false;
+        // проверить телефон
+        String expression1 = "[+]?\\d{1}[-\\s]?\\d{3}[-\\s]?\\d{3}[-\\s]\\d{2}[-\\s]\\d{2}"; // +# ### ### ## ## or #-###-###-##-##
+        String expression2 = "[+]?\\d{1}[-\\s]?[(]?\\d{3}[)]?[-\\s]?\\d{3}?[-\\s]\\d{2}[-\\s]\\d{2}";// +7 (383) 222-33-22
+        CharSequence inputStr = phoneNumber;
+        Pattern pattern = Pattern.compile(expression1);
+        Matcher matcher = pattern.matcher(inputStr);
+        if(matcher.matches()){ //если совпадает с форматом expression1
+            isValid = true;
+        }
+        pattern = Pattern.compile(expression2);
+        matcher = pattern.matcher(inputStr);
+        if(matcher.matches()){ //если совпадает с форматом expression1
+            isValid = true;
+        }
+
+        return isValid;
+    }
+    public static boolean validatePattern(String inputValue, String patternValue){
+        boolean isValid = false;
+        CharSequence inputStr = inputValue;
+        Pattern pattern = Pattern.compile(patternValue);
+        Matcher matcher = pattern.matcher(inputStr);
+        if(matcher.matches()) { //если совпадает с форматом expression1
+            isValid = true;
+        }
+        return isValid;
+    }
+
 
 }
