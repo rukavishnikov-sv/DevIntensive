@@ -4,6 +4,7 @@ package com.softdesign.devintensive.data.managers;
  * Created by Admin on 29.06.2016.
  */
 import android.content.SharedPreferences;
+import android.net.Uri;
 
 import com.softdesign.devintensive.utils.ConstantManager;
 import com.softdesign.devintensive.utils.DevintensiveApplication;
@@ -38,5 +39,14 @@ public class PreferenceManager {
         userFields.add(mSharedPreferences.getString(ConstantManager.USER_GIT_KEY, "null"));
         userFields.add(mSharedPreferences.getString(ConstantManager.USER_BIO_KEY, "null"));
         return userFields;
+    }
+    public void SaveUserPhoto(Uri uri){
+        SharedPreferences.Editor editor=mSharedPreferences.edit();
+        editor.putString(ConstantManager.USER_PHOTO_KEY, uri.toString());
+        editor.apply();
+
+    }
+    public Uri loadUserPhoto(){
+        return Uri.parse(mSharedPreferences.getString(ConstantManager.USER_PHOTO_KEY,"android.resource://com.softdesign.devintensive/drawable/r"));
     }
 }

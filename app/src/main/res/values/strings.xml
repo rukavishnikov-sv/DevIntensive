@@ -2,26 +2,21 @@
     <string name="app_name">Рукавишников Сергей</string>
     <string name="about">О себе</string>
     <string name="aboutMe">
-        About me
-
-        Lorem ipsum dolor sit amet, consectetur
-
-        adipisici elit, sed eiusmod tempor
-
-        incidunt ut labore et dolore magna aliqua. Ut
-
-        enim ad minim veniam, quis nostrud\r\n
-
-        exercitation ullamco laboris nisi ut aliquid ex
-
-        ea commodi consequat. Quis aute iure reprehenderit
-
-        in voluptate velit esse cillum dolore\r\n
-        eu fugiat nulla pariatur. Excepteur sint obcaecat
-
-        cupiditat non proident, sunt in culpa qui officia
-
-        deserunt mollit anim id est laborum.
-
+        — Убили, значит, Фердинанда-то нашего,— сказала Швейку его служанка.
+Швейк несколько лет тому назад, после того как медицинская комиссия признала его идиотом, ушел с военной службы и теперь промышлял продажей собак, безобразных ублюдков, которым он сочинял фальшивые родословные.
+Кроме того, он страдал ревматизмом и в настоящий момент растирал себе колени оподельдоком.
+— Какого Фердинанда, пани Мюллерова? — спросил Швейк, не переставая массировать колени.— Я знаю двух Фердинандов. Один служит у фармацевта Пруши. Как-то раз по ошибке он выпил у него бутылку жидкости для ращения волос; а еще есть Фердинанд Кокошка, тот, что собирает собачье дерьмо. Обоих ни чуточки не жалко.
     </string>
+    <string name="user_profile.placeholder.image">Изменить фотографию профиля</string>
+    <string name="mobyle_phone.hint">Мобильный телефон</string>
+    <string name="mobyle_phone.text">+7(913)322223</string>
+    <string name="user_profile_dialog.galery">Загрузить из галереи</string>
+    <string name="user_profile_dialog.camera">Сделать снимок</string>
+    <string name="user_profile_dialog.cancel">Отмена</string>
+    <string name="user_profile.dialog.title">Изменить фотографию профиля</string>
+    <string name="user_profile.choose.message">Выберите фото</string>
+    <string name="login">ВОЙТИ</string>
+    <string name="hint_email">E-mail</string>
+    <string name="forget_password">Забыли пароль?</string>
+    <string name="hint_password">Пароль</string>
 </resources>

@@ -50,4 +50,12 @@
     <style name="custom_dialog">
         <item name="android:fullDark">@android:color/transparent</item>
     </style>
+    <style name="login_edit">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:enabled">true</item>
+        <item name="android:focusable">true</item>
+        <item name="android:textColor">@color/black</item>
+        <item name="android:textColorHint">@color/gray</item>
+    </style>
 </resources>
