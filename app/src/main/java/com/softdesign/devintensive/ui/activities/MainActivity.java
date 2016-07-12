@@ -428,6 +428,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener{
         mDataManager.getPreferenceManager().saveUserProfileData(userData);
     }
     private void initUserInfoValue(){
+        //Загрузка данных
         List <String> userData = mDataManager.getPreferenceManager().loadUserProfileValues();
         for (int i = 0; i < userData.size(); i++) {
             mUserValueViews.get(i).setText(userData.get(i));
