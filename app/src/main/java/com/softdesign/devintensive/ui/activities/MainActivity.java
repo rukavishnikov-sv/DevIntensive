@@ -411,14 +411,14 @@ public class MainActivity extends BaseActivity implements View.OnClickListener{
         }
 
     }
-    private void loadUserFields(){
+   /* private void loadUserFields(){
         //Загрузка данных
-        List<String> userData = mDataManager.getPreferenceManager().loadUserProfileData();
+        List <String> userData = mDataManager.getPreferenceManager().loadUserProfileData();
         for (int i=0; i<userData.size(); i++) {
             mUserInfoViews.get(i).setText(userData.get(i));
         }
 
-    }
+    }*/
     private void saveUserFields(){
         // Сохранение данных
         List<String> userData =new ArrayList<>();
@@ -428,7 +428,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener{
         mDataManager.getPreferenceManager().saveUserProfileData(userData);
     }
     private void initUserInfoValue(){
-        List <String> userData= mDataManager.getPreferenceManager().loadUserProfileValues();
+        List <String> userData = mDataManager.getPreferenceManager().loadUserProfileValues();
         for (int i = 0; i < userData.size(); i++) {
             mUserValueViews.get(i).setText(userData.get(i));
 
