@@ -13,9 +13,13 @@ import android.widget.TextView;
 
 import com.softdesign.devintensive.R;
 import com.softdesign.devintensive.data.managers.DataManager;
+import com.softdesign.devintensive.data.managers.PreferenceManager;
 import com.softdesign.devintensive.data.network.req.UserLoginReq;
 import com.softdesign.devintensive.data.network.res.UserModelRes;
+import com.softdesign.devintensive.utils.ConstantManager;
 import com.softdesign.devintensive.utils.NetworkStatusCheker;
+
+import java.util.ArrayList;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -108,4 +112,5 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener 
         };
         mDataManager.getPreferenceManager().saveUserProfileValues(userValues);
     }
+   
 }//end of class
