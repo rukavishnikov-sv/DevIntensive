@@ -22,5 +22,8 @@
     <dimen name="left_medial_margin_24">24dp</dimen>
     <dimen name="right_medial_margin_24">24dp</dimen>
     <dimen name="left_small_margin_16">16dp</dimen>
+    <dimen name="font_medium_20">20sp</dimen>
+    <dimen name="spacinq_samall_8">8dp</dimen>
+    <dimen name="font_small_14">14sp</dimen>
 
 </resources>

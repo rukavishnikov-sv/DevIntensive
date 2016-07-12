@@ -22,9 +22,10 @@
             <LinearLayout
                 style="@style/header">
                 <TextView
+                    android:id="@+id/user_info_rait_txt"
                     style="@style/headTextView"
                     android:fontFamily="sans-serif-condensed"
-                    android:text="4\nРейтинг"
+                    android:text="@string/rating"
                     />
             </LinearLayout>
 
@@ -36,9 +37,10 @@
                 style="@style/headTextView"
                 android:layout_weight="0.4">
                 <TextView
+                    android:id="@+id/user_info_code_lines_txt"
                     style="@style/headTextView"
                     android:fontFamily="sans-serif-condensed"
-                    android:text="4\nНаписано строк\nкода"
+                    android:text="@string/str_written"
                     />
 
             </LinearLayout>
@@ -49,9 +51,10 @@
             <LinearLayout
                 style="@style/headTextView">
                 <TextView
+                    android:id="@+id/user_info_project_txt"
                     style="@style/headTextView"
                     android:fontFamily="sans-serif-condensed"
-                    android:text="4\nПроектов"/>
+                    android:text="@string/proekts"/>
 
             </LinearLayout>
         </LinearLayout>
@@ -138,12 +141,12 @@
                         android:layout_height="wrap_content"
                         android:fontFamily="sans-serif-condensed"
                         android:inputType="textEmailAddress"
-                        android:text="my@mail.com"
+                        android:text="@string/mail_value"
                         android:textColor="@color/black"
                         android:textColorHint="@color/gray"
                         android:focusable="false"
                         android:enabled="false"
-                        android:hint="Электронная почта"/>
+                        android:hint="@string/mail_hint"/>
                 </android.support.design.widget.TextInputLayout>
 
             </LinearLayout>
@@ -169,7 +172,7 @@
             <ImageView
                 android:id="@+id/vk_open_img"
                 style="@style/icon.left"
-                android:src="@drawable/ic_people_black_24dp"
+                android:src="@drawable/ic_vk_circle_24dp"
                 />
             <LinearLayout
                 android:layout_width="0dp"
@@ -191,12 +194,12 @@
                         android:layout_height="wrap_content"
                         android:fontFamily="sans-serif-condensed"
                         android:inputType="textWebEditText"
-                        android:text="vk.com/user"
+                        android:text="vk_value"
                         android:textColor="@color/black"
                         android:textColorHint="@color/gray"
                         android:focusable="false"
                         android:enabled="false"
-                        android:hint="Профиль в VK"/>
+                        android:hint="@string/vk_hint"/>
                 </android.support.design.widget.TextInputLayout>
             </LinearLayout>
             <ImageView
@@ -218,7 +221,7 @@
             <ImageView
                 android:id="@+id/github_open_img"
                 style="@style/icon.left"
-                android:src="@drawable/ic_cloud_circle_black_24dp"
+                android:src="@drawable/ic_github_circle_24dp"
                 />
             <LinearLayout
                 android:layout_width="0dp"
@@ -239,12 +242,12 @@
                         android:layout_height="wrap_content"
                         android:fontFamily="sans-serif-condensed"
                         android:inputType="textWebEditText"
-                        android:text="github.com/user/DevIntensive"
+                        android:text="@string/github_value"
                         android:textColor="@color/black"
                         android:textColorHint="@color/gray"
                         android:focusable="false"
                         android:enabled="false"
-                        android:hint="Репозиторий"/>
+                        android:hint="@string/github_hint"/>
                 </android.support.design.widget.TextInputLayout>
             </LinearLayout>
             <ImageView

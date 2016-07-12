@@ -15,8 +15,19 @@
     <string name="user_profile_dialog.cancel">Отмена</string>
     <string name="user_profile.dialog.title">Изменить фотографию профиля</string>
     <string name="user_profile.choose.message">Выберите фото</string>
-    <string name="login">ВОЙТИ</string>
-    <string name="hint_email">E-mail</string>
-    <string name="forget_password">Забыли пароль?</string>
-    <string name="hint_password">Пароль</string>
+
+    <string name="auth.authorization_enter">ВОЙТИ</string>
+    <string name="auth.email">E-mail</string>
+    <string name="auth.remember">Забыли пароль?</string>
+    <string name="auth.password">Пароль</string>
+
+    <string name="rating">4\nРейтинг</string>
+    <string name="str_written">4\nНаписано строк\nкода</string>
+    <string name="proekts">4\nПроектов</string>
+    <string name="mail_value">my@mail.com</string>
+    <string name="mail_hint">Электронная почта</string>
+    <string name="vk_hint">Профиль в VK</string>
+    <string name="github_value">github.com/user/DevIntensive</string>
+    <string name="github_hint">Репозиторий GitHub</string>
+    <string name="auth.login">ВХОД</string>
 </resources>

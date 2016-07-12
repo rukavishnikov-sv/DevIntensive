@@ -76,6 +76,7 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener 
         mDataManager.getPreferenceManager().saveAuthToken(userModel.getData().getToken());
         mDataManager.getPreferenceManager().saveUserId(userModel.getData().getUser().getId());
         saveUserValues(userModel);
+        saveContentValues(userModel);
 
         Intent loginIntent = new Intent(this, MainActivity.class);
         startActivity(loginIntent);
@@ -112,5 +113,15 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener 
         };
         mDataManager.getPreferenceManager().saveUserProfileValues(userValues);
     }
-   
+         private void saveContentValues(UserModelRes userModel){
+                 String[] contentValues = {
+                                 userModel.getData().getUser().getContacts().getPhone(),
+                                 userModel.getData().getUser().getContacts().getEmail(),
+                                 userModel.getData().getUser().getRepositories().getRepo().get(0).getGit(),
+                                 userModel.getData().getUser().getContacts().getVk(),
+                                 userModel.getData().getUser().getPublicInfo().getBio()
+
+                                 };
+                 mDataManager.getPreferenceManager().saveContentValue(contentValues);
+             }
 }//end of class
