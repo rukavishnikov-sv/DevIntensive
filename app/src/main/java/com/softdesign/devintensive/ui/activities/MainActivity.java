@@ -48,6 +48,7 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 import android.Manifest;
+import android.widget.TextView;
 //import butterknife.BindView;
 //import butterknife.ButterKnife;
 
@@ -70,6 +71,9 @@ public class MainActivity extends BaseActivity implements View.OnClickListener{
     private EditText mUserPhone, mUserMail, mUserVk, mUserGit, mUserBio;
     private ImageView mPhoneCall, mEmailSend, mVkOpen, mGitOpen;
     private List<EditText> mUserInfoViews;
+
+    private TextView mUserValueRaiting, mUserValueCodeLines, mUserValueProjects;
+    private List<TextView> mUserValueViews;
 
     private AppBarLayout.LayoutParams mAppBarParams = null;
     private File mPhotoFile = null;
@@ -108,6 +112,11 @@ public class MainActivity extends BaseActivity implements View.OnClickListener{
         mUserVk=(EditText) findViewById(R.id.vk_et);
         mUserGit=(EditText) findViewById(R.id.github_et);
         mUserBio=(EditText) findViewById(R.id.about_et);
+
+        mUserValueRaiting = (TextView) findViewById(R.id.user_info_rait_txt);
+        mUserValueCodeLines = (TextView) findViewById(R.id.user_info_code_lines_txt);
+        mUserValueProjects = (TextView) findViewById(R.id.user_info_project_txt);
+
         mPhoneCall=(ImageView)findViewById(R.id.phone_call_img);
         mEmailSend=(ImageView)findViewById(R.id.email_send_img);
         mVkOpen=(ImageView)findViewById(R.id.vk_open_img);
@@ -119,6 +128,11 @@ public class MainActivity extends BaseActivity implements View.OnClickListener{
         mUserInfoViews.add(mUserGit);
         mUserInfoViews.add(mUserBio);
 
+        mUserValueViews = new ArrayList();
+        mUserValueViews.add(mUserValueRaiting);
+        mUserValueViews.add(mUserValueCodeLines);
+        mUserValueViews.add(mUserValueProjects);
+
         mFab.setOnClickListener(this);
         mPrifilePlaceholder.setOnClickListener(this);
 
@@ -129,7 +143,9 @@ public class MainActivity extends BaseActivity implements View.OnClickListener{
 
         setupToolBar();
         setupDrawer();
-        loadUserInfoValue();
+        initUserField();
+        initUserInfoValue();
+        initContentValue();
         Picasso.with(this)
                 .load(mDataManager.getPreferenceManager().loadUserPhoto())
                 .placeholder(R.drawable.r)////TODO: сделать плейсхолдер и transform + crop
@@ -386,7 +402,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener{
                 hideProfilePlaceholder();
                 unlockToolbar();
                 mCollapsingToolbar.setExpandedTitleColor(getResources().getColor(R.color.white));
-                saveUserInfoValue();
+                saveUserFields();
             }
             mPhoneCall.setEnabled(true);//разрешение звонка
             mEmailSend.setEnabled(true);//разрешение отправки почты
@@ -395,23 +411,44 @@ public class MainActivity extends BaseActivity implements View.OnClickListener{
         }
 
     }
-    private void loadUserInfoValue(){
+   /* private void loadUserFields(){
         //Загрузка данных
-        List<String> userData = mDataManager.getPreferenceManager().loadUserProfileData();
+        List <String> userData = mDataManager.getPreferenceManager().loadUserProfileData();
         for (int i=0; i<userData.size(); i++) {
             mUserInfoViews.get(i).setText(userData.get(i));
         }
 
-    }
-    private void saveUserInfoValue(){
+    }*/
+    private void saveUserFields(){
         // Сохранение данных
         List<String> userData =new ArrayList<>();
         for (EditText userFieldView : mUserInfoViews ) {
             userData.add(userFieldView.getText().toString());
         }
         mDataManager.getPreferenceManager().saveUserProfileData(userData);
+    }
+    private void initUserInfoValue(){
+        //Загрузка данных
+        List <String> userData = mDataManager.getPreferenceManager().loadUserProfileValues();
+        for (int i = 0; i < userData.size(); i++) {
+            mUserValueViews.get(i).setText(userData.get(i));
+
+        }
 
     }
+    private void initUserField() {
+        List<String> userFields = mDataManager.getPreferenceManager().loadUserProfileData();
+        for (int i = 0; i < userFields.size(); i++) {
+            if (!userFields.get(i).equals("null")) mUserInfoViews.get(i).setText(userFields.get(i));
+        }
+    }
+
+        private void initContentValue() {
+                List<String> contentData = mDataManager.getPreferenceManager().loadContentValue();
+                for (int i = 0; i < contentData.size(); i++) {
+                    mUserInfoViews.get(i).setText(contentData.get(i));
+                    }
+            }
     private void loadPhotoFromGalery(){
         Intent takeGaleryIntent = new Intent(Intent.ACTION_PICK_ACTIVITY, MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
         takeGaleryIntent.setType("image/*");
